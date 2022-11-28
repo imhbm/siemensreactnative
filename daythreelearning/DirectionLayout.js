@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import LTREx from './LTREx';
+import RTLEx from './RTLEx';
 
 const DirectionLayout = () => {
   const [direction, setDirection] = useState("ltr");
@@ -10,15 +12,32 @@ const DirectionLayout = () => {
       selectedValue={direction}
       values={["ltr", "rtl"]}
       setSelectedValue={setDirection}>
-      <View
-        style={[styles.box, { backgroundColor: "powderblue" }]}
-      />
-      <View
-        style={[styles.box, { backgroundColor: "skyblue" }]}
-      />
-      <View
-        style={[styles.box, { backgroundColor: "steelblue" }]}
-      />
+      { direction === "ltr" ? <LTREx/> : <RTLEx/> 
+    //<>
+    //   <View
+    //     style={[styles.box, { backgroundColor: "powderblue" }]}
+    //   />
+    //   <View
+    //     style={[styles.box, { backgroundColor: "skyblue" }]}
+    //   />
+    //   <View
+    //     style={[styles.box, { backgroundColor: "steelblue" }]}
+    //   />
+    // </> 
+    // :
+    // <>
+    //   <View
+    //     style={[styles.box, { backgroundColor: "steelblue" }]}
+    //   />
+    //   <View
+    //     style={[styles.box, { backgroundColor: "skyblue" }]}
+    //   />
+    //   <View
+    //     style={[styles.box, { backgroundColor: "powderblue" }]}
+    //   />
+    // </>
+    // }
+  }
     </PreviewLayout>
   );
 };
