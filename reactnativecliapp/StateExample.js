@@ -10,7 +10,6 @@ const Cat = (props) => {
       </Text>
       <Button
         onPress={() => {
-          setIsHungry(false);
         }}
         disabled={!isHungry}
         title={isHungry ? "Pour me some milk, please!" : "Thank you!"}
