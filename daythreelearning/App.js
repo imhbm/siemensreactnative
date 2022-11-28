@@ -6,6 +6,7 @@ import ScrollViewApp from './ScrollViewApp';
 import FlatListBasics from './FlatListBasics';
 import SectionListBasics from './SetionListBasics';
 import LotsOfStyles from './LotsOfStyles';
+import FixedDimensionsBasics from './FixedDimensionsBasics';
 const App=() =>{
   /**
   return (
@@ -46,8 +47,8 @@ return (
  */
 return (
   <View>
-  <LotsOfStyles />
-  
+    <FixedDimensionsBasics />
+    
   </View>
   
 
