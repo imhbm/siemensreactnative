@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {StyleSheet,Text,View} from 'react-native';
 import PizzaTranslator from './PizzaTranslator';
-export default function App() {
+import styles from './Styles';
+import ScrollViewApp from './ScrollViewApp';
+import FlatListBasics from './FlatListBasics';
+const App=() =>{
   return (
     <View style={styles.container}>
-      <PizzaTranslator />
-      <StatusBar style="auto" />
+      <Text>Inside App we will render Hello World Component ! </Text>
+     <FlatListBasics /> 
+    
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+
+export default App;
