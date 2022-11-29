@@ -1,17 +1,23 @@
 import React from 'react';
-import {StyleSheet,Text,View} from 'react-native';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const App=() =>{
+import { ProductsList } from './screens/ProductsList';
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View>
-    <Text>E Comm App </Text>
-  
-    </View>
-
-);
-
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="ProductList" component={ProductLsist} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
+export default App;
 
 
 export default App;
