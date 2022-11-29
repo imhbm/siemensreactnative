@@ -11,13 +11,10 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="ProductList" component={ProductLsist} />
+        <Stack.Screen name="ProductsList" component={ProductsList} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-export default App;
-
 
 export default App;
