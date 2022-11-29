@@ -1,0 +1,49 @@
+Ecomm App details :
+
+We are creating a multi-screen mobile app, and the products list is one of the app screens. 
+We can use a React Native navigation extension to build multi-screen apps.
+Screens:-
+Products Screen
+Product Details Screen
+Shopping Cart Screen
+Login Screen
+Register Screen
+
+
+
+Data:
+The product information is typically retrieved via a web API. 
+But, for now, let’s create a mock API service to obtain several products and get our mobile app running.
+ 
+
+App.js ->
+	Now, all app components are ready to be assembled as an ecommerce mobile app. 
+	The main application component needs to include a navigation controller because 
+        we have multiple screens. Moreover, we indeed need to wrap all components with 
+        the cart context provider because we have used the React Context API.
+	
+        CartContext.js --- setting global context to hold and pass data from one screen to another screen
+
+			    We have to store the shopping cart data in a global location, and we need to 
+			    update/retrieve them from different places. React’s Context API is a good 
+			    solution for this scenario because it provides a simple way to have a global state,
+			    unlike other state management solutions.
+			    CartProvider class defines a React Context for the shopping cart by exposing the shopping cart’s actions. 
+			    Now, we can use this context instance to add new cart items, get a list of items, 
+                            and get the total items.
+	CartIcon.js  --- component 
+	ProductsList.js  --- screen which lists all the products
+	Product.js  --- component to render product 
+	ProductDetails.js --- screen which will be opened on press of product from ProductsList.js
+			      The product details section displays the full information about the currently selected product. 
+			      Also, it has the Add to Cart button, which updates the shopping cart.
+			      The above screen loads product details from the mock API service based on the product identifier 
+			      received from the navigation parameters. The Add to Cart button’s onPress action then updates 
+			      the shopping cart context by calling the addItemToCart context function. 
+			      Finally, the screen’s content is wrapped with the SafeAreaView and ScrollView to enable a 
+			      vertical scrollbar to show the content that doesn’t quite fit within the device’s viewport.
+	Cart.js --- screen for summary of cart
+	            Every customer wishes to see a summary of their order before checkout. 
+                    This ecommerce app has a cart summary screen that will list down all the shopping cart 
+                    items with product name, quantity, subtotal, and final total.
+		    The code here fetches shopping cart items from the cart context and displays them inside a list. 
