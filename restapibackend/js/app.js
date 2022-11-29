@@ -11,8 +11,32 @@ app.use(bodyParser.urlencoded({
     extended:true
 }));
 
+//http://localhost:3001/addproduct
+app.post('/addproduct',(req,res)=>{
+    let {name,price,image,description} = req.body;
+    poolconn.query('INSERT INTO product (name,price,image,description) VALUES ($1, $2,$3,$4)', 
+    [name,price,image,description], (error, results) => {
+        if(error){
+            throw error;
+        }
+        //let id = results.rows[0].id;
+        res.status(201).send(`Product added`);
+    });
+    });   
+
+//http://localhost:3001/productById/1
+app.get('/productById/:id',(req,res)=>{
+    const product_id = req.params.id;
+    poolconn.query('SELECT * FROM product WHERE id=$1',[product_id],(error,results)=>{
+        if(error){
+            throw error;
+        }
+        res.status(200).json(results.rows);
+    })
+});
+
 //verfiy Login Details
-//http://localhost:3001/login
+//http://localhost:3001/login//
 app.get('/login/:uName/:passcode',(req,res)=>{
     
     //converting string type id to integer or number type
@@ -124,6 +148,12 @@ app.put('/updateuserdetails',(req,res)=>{
         res.status(200).send(`User id: ${userid} details are updated`);
     });
 });
+
+
+
+
+
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
