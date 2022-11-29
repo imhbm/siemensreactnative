@@ -10,6 +10,17 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended:true
 }));
+/**
+ * Create table in RDBMS or any other dbms
+ * CREATE TABLE product (
+	id serial PRIMARY KEY,
+	name  VARCHAR ( 100 ),
+	price VARCHAR ( 50 ),
+	image VARCHAR (255),
+	description VARCHAR ( 255 )
+); 
+ * 
+ */
 
 //http://localhost:3001/addproduct
 app.post('/addproduct',(req,res)=>{
